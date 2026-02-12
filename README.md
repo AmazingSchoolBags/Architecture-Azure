@@ -1,26 +1,27 @@
-# Architecture Azure Enterprise - Projet InnovTech ☁️🏛️
+# Architecture Cloud Azure - Projet InnovTech ☁️🔵
 
-## 🎯 Présentation
-Conception d'une architecture cloud robuste et sécurisée sur Microsoft Azure pour le projet InnovTech. Ce projet met en œuvre le modèle **Hub-and-Spoke** pour une isolation stricte et une gouvernance centralisée.
+## 🎯 Présentation du projet
+Conception d'une infrastructure cloud sécurisée sur Microsoft Azure pour la société "InnovTech". Ce projet met en œuvre les meilleures pratiques d'architecture d'entreprise, notamment le modèle **Hub-and-Spoke** et une approche de sécurité **Zero Trust**.
 
 ## 🚀 Réalisations Techniques
-* [cite_start]**Topologie Hub-and-Spoke :** Isolation des environnements Prod et Dev avec un Hub centralisant la sécurité (Bastion, Gateway)[cite: 3492, 3511, 3513].
-* [cite_start]**Plan d'Adressage IP :** Subdivision précise d'un espace 172.16.50.0/23 en 4 VNets isolés (/25)[cite: 3493, 3527].
-* **Architecture PaaS & Sécurité :**
-    * [cite_start]Intégration de services managés : App Service (Premium V3), Azure SQL, Key Vault[cite: 3603, 3605, 3608].
-    * [cite_start]Sécurisation via **Private Endpoints (Private Link)** pour supprimer toute exposition publique[cite: 3609, 3614, 3633].
-* [cite_start]**Gouvernance & IAM :** Mise en œuvre du RBAC, Azure Policy (Deny Public IP) et accès privilégiés via PIM/MFA[cite: 3585, 3628, 3629, 3639].
-* [cite_start]**Administration :** Accès sécurisé aux infrastructures via **Azure Bastion**[cite: 3631, 3700].
+* **Topologie Réseau :** Mise en place d'une architecture **Hub-and-Spoke** pour centraliser les flux et isoler les environnements.
+* **Sécurité & Administration :** * Déploiement d'**Azure Bastion** pour un accès RDP/SSH sécurisé sans IP publiques.
+    * Utilisation de **Private Endpoints** pour isoler les services PaaS (App Service, SQL Database) du réseau public.
+* **Gouvernance & Identité :** Configuration du RBAC, MFA obligatoire et mise en place de politiques via **Azure Policy**.
+* **Postures de Sécurité :** Implémentation du modèle Zero Trust et micro-segmentation réseau via des NSG (Network Security Groups).
+* **Monitoring :** Surveillance des performances et alertes via **Azure Monitor**.
 
-## 🏗️ Structure Réseau (VNets)
-* [cite_start]**VNet-Hub :** Services d'infrastructure et de sécurité[cite: 3513, 3524].
-* [cite_start]**VNet-Prod :** Environnement de production critique[cite: 3513, 3524].
-* [cite_start]**VNet-Dev :** Environnement de développement isolé[cite: 3513, 3524].
-* [cite_start]**VNet-Libre :** Réserve pour extension future[cite: 3513, 3524].
+## 🏗️ Architecture & Adressage
+Le plan d'adressage a été conçu pour éviter tout chevauchement (Overlap) et permettre l'évolutivité :
+* **VNet Hub :** Centralisation des services partagés (Bastion, Gateway).
+* **VNet Spoke App :** Hébergement de la couche applicative.
+* **VNet Spoke Data :** Stockage hautement sécurisé pour les données sensibles.
 
-## 📊 Estimation Budgétaire
-[cite_start]Projet optimisé pour un coût mensuel d'environ **1000,00€**, incluant les services PaaS et la redondance[cite: 3680].
+## 📊 Optimisation des Coûts
+Le projet inclut une estimation détaillée des coûts via la calculatrice Azure, optimisant les ressources pour un équilibre performance/prix (Instance B-Series, SQL DTU-based).
 
-## 📂 Structure du dépôt
-* `/docs` : Contient le rapport d'architecture complet et le plan d'adressage détaillé.
-* `/images` : Schémas d'architecture et diagrammes réseau.
+## 📁 Documentation
+Le rapport technique complet détaillant la feuille de route de migration (Roadmap) et le plan de déploiement (Build Plan) est disponible dans le dossier `/docs`.
+
+## 👥 Auteur
+* Mohamed Chaouay Tissir (Formation
